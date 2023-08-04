@@ -1,0 +1,47 @@
+Redis -> in-memory data structure store used as a database, cache, message broker and streaming engine
+
+- Redis is written in C
+- Redis is supported on Linux and MacOS, but not on Winows. So we install it on Windows using WSL or docker
+- default port of redis is 6379
+
+* Installing Redis on Ubuntu
+- sudo apt update
+- sudo apt install redis
+- sudo systemctl status redis
+- sudo systemctl enable redis
+- sudo systemctl start redis
+- sudo systemctl stop redis
+- sudo systemctl restart redis
+- sudo systemctl restart redis-server
+- sudo systemctl restart redis.server
+- redis-cli --version
+
+- redis = redis-server + redis-cli
+- redis-server is redis-daemon, responsinle for storing and managing data in memory, runs in the background, listen for client connections, doesn't require user interaction
+- redis-cli si a CLI(terminal program) where we issue commands which interacts with redis-server
+- RedisInsight: Redis GUI (only GUI, we have to install and start redis-server separately)
+
+* Keys
+- The empty string is also a valid key
+- The maximum allowed key size is 512MB
+- Key should not be either very long or very short
+- Try to stick with a schema. e.g.: "object-type:id" like "user:1000" 
+- Dots or hyphens are often used for multi-word fields like "comment"4321:reply.to" or "comment:4321:reply-to"
+
+* Redis Data Types
+- String
+- Lists: lists of strings sorted by insertion order
+- Sets: Unordered collections of unique strings that act like sets from other prog. languages
+- Sorted sets: Collections of unique strings that maintain order by each string's associated score
+- Hashes: Record types modelled as collections of ield-value pairs. They are handy to represent objects
+- Streams: 11:49
+ 
+ * Basic Configuration Commands
+- config get * : get all config settings
+- config get requirepass : get specific config settings
+- config set requirepass value : set specific config settings
+- In Linux /etc/redis/redis.conf is path of configuration file redis. We can set and get all redis configuration from here
+
+- redis-server : start redis-server 
+- redis-cli : start redis-cli
+- redis-cli -h <host> -p <port> -a <password> : start redis-cli with custom configuration
