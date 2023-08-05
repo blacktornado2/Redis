@@ -72,3 +72,15 @@ Redis -> in-memory data structure store used as a database, cache, message broke
 - incr <key> :  increase the value of the key by 1, only works on Integers
 - incrby <key> <increment> : Increase the value of key by increment specified
 
+* List commands
+- lpush <listName> [elements] : push elements to a list(last inserted element is at 0 index), e.g. lpush students ankit akash 
+- rpush <listName> [elements] : push elements to a list(last inserted element is at last index)
+- lpush and rpush will make a new list if the list doesn't exists 
+- llen <listName> : no. of elements in the list
+- lrange <listName> <startingIndex> <endingIndex> :  show elements in the range, e.g. lrange students 
+- lrange <listName> 0 -1 : show whole list
+- lpop <listName> : pop an element at 0th index
+- lpop <listName> <noOfElements>: pop a number of elements from the starting
+- lindex <listName> <index> : Return the element at the index specified
+- lset <listName> <index> <newValue> : overwrite element at that index
+- lpushx <listName> [elements] : insert new elements in the list, only if the list already exists
