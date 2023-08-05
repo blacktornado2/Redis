@@ -4,7 +4,7 @@ Redis -> in-memory data structure store used as a database, cache, message broke
 - Redis is supported on Linux and MacOS, but not on Winows. So we install it on Windows using WSL or docker
 - default port of redis is 6379
 
-* Installing Redis on Ubuntu
+* Installing Redis on Ubuntu or MacOS: follow official documentation
 - sudo apt update
 - sudo apt install redis
 - sudo systemctl status redis
@@ -15,6 +15,7 @@ Redis -> in-memory data structure store used as a database, cache, message broke
 - sudo systemctl restart redis-server
 - sudo systemctl restart redis.server
 - redis-cli --version
+- redis-server --version
 
 - redis = redis-server + redis-cli
 - redis-server is redis-daemon, responsinle for storing and managing data in memory, runs in the background, listen for client connections, doesn't require user interaction
@@ -45,3 +46,29 @@ Redis -> in-memory data structure store used as a database, cache, message broke
 - redis-server : start redis-server 
 - redis-cli : start redis-cli
 - redis-cli -h <host> -p <port> -a <password> : start redis-cli with custom configuration
+- systemctl status redis/redis-server/redis.service : check the status of redis
+- systemctl enable redis : Enable redis
+- systemctl disable redis : Disable redis
+- systemctl start redis : Start redis
+- systemctl stop redis : Stop redis
+- systemctl restart redis: Restart redis, used when we made some changes to conf. file of redis
+
+* String commands
+- keys * : list all keys saved in redis
+- set <key> <value> : set key  
+- get <key> : get key specified
+- del <key> : delete key
+- flushall : delete all keys
+- exists <key> : Does key exists or not
+- By default, the key doesn;t expire(unless redis restarts)
+- expire <key> <seconds> : set the expiry of a key in seconds
+- rename <key> <newKey> : Rename the already set key to a new value
+- ttl <key> : How much time is left for key to expire (TTL: Time-To-Live)
+- strlen <key> : length of key's name
+- setnx <key> <value> : set the key if already not present, set <key> overwrites the key, if present
+- setex <key> <expiryInSeconds> <value> : Set key with expiry
+- mset <key1> <value1> <key2> <value2> <key3> <value3> : Set multiple key value at once
+- decr <key> : decrease the value of the key by 1, only works on Integers
+- incr <key> :  increase the value of the key by 1, only works on Integers
+- incrby <key> <increment> : Increase the value of key by increment specified
+
