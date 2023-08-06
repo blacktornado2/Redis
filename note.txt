@@ -84,3 +84,18 @@ Redis -> in-memory data structure store used as a database, cache, message broke
 - lindex <listName> <index> : Return the element at the index specified
 - lset <listName> <index> <newValue> : overwrite element at that index
 - lpushx <listName> [elements] : insert new elements in the list, only if the list already exists
+
+* Set commands
+- unique elements, unordered 
+- sadd <setName> [elements] : add elements to a set
+- smembers <setName> : see all the members of the set
+- scard <setName> : no. of elements in set
+- srem <setName> [elements] : remove elements from a set
+- spop <setName> : pop an element randomly from set
+
+* Sorted set commands
+- unique elements, sorted
+- zadd 
+- zrange
+
+* Hash commands
